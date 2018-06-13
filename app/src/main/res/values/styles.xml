@@ -1,0 +1,52 @@
+<resources>
+
+    <style name="AppTheme" parent="NoToolbar" />
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoToolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+    </style>
+
+    <style name="gallery_action_btn" parent="Widget.AppCompat.Button.Small">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
+    <style name="AppFont" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/black87alpha</item>
+    </style>
+
+    <style name="AppFontHeading6" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_view_body_large</item>
+    </style>
+
+    <style name="AppFontBody1" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_view_body</item>
+    </style>
+
+    <style name="AppFontHeading" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black87alpha</item>
+        <item name="android:textSize">@dimen/text_view_heading</item>
+    </style>
+
+</resources>
