@@ -149,7 +149,7 @@ public class BlankFragment extends Fragment implements GalleryToolbarContract.Ga
     private GalleryClickListener getGalleryClickListener() {
         return new GalleryClickListener() {
             @Override
-            public void onClick() {
+            public void onClick(UserMedia userMedia) {
 
             }
 

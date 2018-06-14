@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:textAppearance="@style/AppFontHeading6"
+            android:textAppearance="@style/AppFontHeading20"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/delete_btn"
             app:layout_constraintStart_toEndOf="@id/close_btn"
@@ -62,7 +62,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/create_folder_btn"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_import_export_black_24dp" />
+            app:srcCompat="@drawable/ic_import_white_24dp" />
 
         <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/delete_btn"

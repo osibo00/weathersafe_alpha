@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/gallery_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@android:color/white"
+            android:elevation="@dimen/appbar_elevation"
+            app:contentInsetEnd="@dimen/no_margin"
+            app:contentInsetLeft="@dimen/no_margin"
+            app:contentInsetRight="@dimen/no_margin"
+            app:contentInsetStart="@dimen/no_margin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gallery_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/usermedia_item" />
+
+    <LinearLayout
+        android:id="@+id/fab_layout03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/mini_fab_margin"
+        android:layout_marginEnd="@dimen/mini_fab_margin"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        app:layout_behavior="productions.darthplagueis.weathersafe.util.MoveUpwardsBehavior"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorLightGrey"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="4dp">
+
+            <TextView
+                android:id="@+id/fab_title03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/AppFontBody12"
+                android:text="@string/select"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/mini_fab03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/fab_elevation"
+            app:fabSize="mini"
+            app:rippleColor="@color/white25alpha"
+            app:srcCompat="@drawable/ic_select_white_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fab_layout02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/mini_fab_margin"
+        android:layout_marginEnd="@dimen/mini_fab_margin"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        app:layout_behavior="productions.darthplagueis.weathersafe.util.MoveUpwardsBehavior"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorLightGrey"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="4dp">
+
+            <TextView
+                android:id="@+id/fab_title02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/AppFontBody12"
+                android:text="@string/move_photos"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/mini_fab02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/fab_elevation"
+            app:fabSize="mini"
+            app:rippleColor="@color/white25alpha"
+            app:srcCompat="@drawable/ic_move_white_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fab_layout01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/mini_fab_margin"
+        android:layout_marginEnd="@dimen/mini_fab_margin"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        app:layout_behavior="productions.darthplagueis.weathersafe.util.MoveUpwardsBehavior"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorLightGrey"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="4dp">
+
+            <TextView
+                android:id="@+id/fab_title01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/AppFontBody12"
+                android:text="@string/import_photos" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/mini_fab01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/fab_elevation"
+            app:fabSize="mini"
+            app:rippleColor="@color/white25alpha"
+            app:srcCompat="@drawable/ic_import_white_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        app:layout_behavior="productions.darthplagueis.weathersafe.util.MoveUpwardsBehavior">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/photos_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/fab_elevation"
+            app:fabSize="normal"
+            app:rippleColor="@color/white25alpha"
+            app:srcCompat="@drawable/ic_add_white_24dp" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

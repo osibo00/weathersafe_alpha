@@ -29,4 +29,8 @@
     <string name="create_new_album">Create New Album</string>
     <string name="create_dialog_exists_error">Album %s already exists.</string>
     <string name="enter_album_tags">Enter Album Tags</string>
+    <string name="detail_photo">Detail Photo</string>
+    <string name="select">Select</string>
+    <string name="import_photos">Import</string>
+    <string name="move_photos">Move</string>
 </resources>

@@ -4,7 +4,7 @@ import productions.darthplagueis.weathersafe.model.UserMedia;
 
 public interface GalleryClickListener {
 
-    void onClick();
+    void onClick(UserMedia userMedia);
 
     void onMultiSelectClick(int amountSelected, UserMedia item);
 

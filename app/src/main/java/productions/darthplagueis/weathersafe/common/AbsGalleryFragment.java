@@ -1,5 +1,6 @@
 package productions.darthplagueis.weathersafe.common;
 
+import android.animation.Animator;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.io.File;
 import java.util.Objects;
@@ -33,6 +36,11 @@ import static productions.darthplagueis.weathersafe.util.Constants.PICK_IMAGE_CO
 
 
 public abstract class AbsGalleryFragment extends Fragment {
+
+    private LinearLayout fabLayout01, fabLayout02, fabLayout03;
+    private FloatingActionButton fab, mini01, mini02, mini03;
+
+    private boolean isFabActive;
 
     protected abstract int getLayoutId();
 
@@ -56,6 +64,8 @@ public abstract class AbsGalleryFragment extends Fragment {
         setToolbar(inflater, parentView);
 
         setRecyclerView(parentView);
+
+        setFloatingActionButton(parentView);
 
         return parentView;
     }
@@ -108,5 +118,63 @@ public abstract class AbsGalleryFragment extends Fragment {
         recyclerView.setAdapter(getAdapter());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), getGridSpanCount()));
         recyclerView.addItemDecoration(new GalleryItemOffsets(parentView.getContext()));
+    }
+
+    private void setFloatingActionButton(View parentView) {
+        fabLayout01 = parentView.findViewById(R.id.fab_layout01);
+        fabLayout02 = parentView.findViewById(R.id.fab_layout02);
+        fabLayout03 = parentView.findViewById(R.id.fab_layout03);
+        fab = parentView.findViewById(R.id.photos_fab);
+        mini01 = parentView.findViewById(R.id.mini_fab01);
+        mini02 = parentView.findViewById(R.id.mini_fab02);
+        mini03 = parentView.findViewById(R.id.mini_fab03);
+
+        fab.setOnClickListener(v -> {
+            if (!isFabActive) showFabMenu();
+            else closeFabMenu();
+        });
+    }
+
+    private void showFabMenu() {
+        isFabActive = true;
+        fabLayout01.setVisibility(View.VISIBLE);
+        fabLayout02.setVisibility(View.VISIBLE);
+        fabLayout03.setVisibility(View.VISIBLE);
+        fab.animate().rotationBy(135f);
+        fabLayout01.animate().translationY(-getResources().getDimension(R.dimen.dp_55));
+        fabLayout02.animate().translationY(-getResources().getDimension(R.dimen.dp_100));
+        fabLayout03.animate().translationY(-getResources().getDimension(R.dimen.dp_145));
+    }
+
+    private void closeFabMenu() {
+        isFabActive = false;
+        fab.animate().rotationBy(-135f);
+        fabLayout01.animate().translationY(0);
+        fabLayout02.animate().translationY(0);
+        fabLayout03.animate().translationY(0).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                if(!isFabActive){
+                    fabLayout01.setVisibility(View.GONE);
+                    fabLayout02.setVisibility(View.GONE);
+                    fabLayout03.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
     }
 }
