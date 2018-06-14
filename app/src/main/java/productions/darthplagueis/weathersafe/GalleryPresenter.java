@@ -78,7 +78,7 @@ public class GalleryPresenter implements GalleryContract.Presenter {
     private void onCreateAdapter() {
         GalleryClickListener listener = new GalleryClickListener() {
             @Override
-            public void onClick() {
+            public void onClick(UserMedia userMedia) {
 
             }
 

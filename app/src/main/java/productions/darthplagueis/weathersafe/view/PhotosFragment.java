@@ -13,6 +13,7 @@ import java.util.List;
 import productions.darthplagueis.weathersafe.GalleryToolbarContract;
 import productions.darthplagueis.weathersafe.GalleryToolbarPresenter;
 import productions.darthplagueis.weathersafe.R;
+import productions.darthplagueis.weathersafe.SecretFolderActivity;
 import productions.darthplagueis.weathersafe.common.AbsGalleryFragment;
 import productions.darthplagueis.weathersafe.model.UserAlbum;
 import productions.darthplagueis.weathersafe.model.UserMedia;
@@ -38,7 +39,7 @@ public class PhotosFragment extends AbsGalleryFragment implements GalleryToolbar
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_photos;
+        return R.layout.fab;
     }
 
     @Override
@@ -53,8 +54,8 @@ public class PhotosFragment extends AbsGalleryFragment implements GalleryToolbar
         observer = adapter::setUserMediaList;
         mediaViewModel.getDescDateList().observe(this, observer);
 
-        FloatingActionButton fab = v.findViewById(R.id.fab);
-        fab.setOnClickListener(v1 -> importPhotos());
+//        FloatingActionButton fab = v.findViewById(R.id.fab);
+//        fab.setOnClickListener(v1 -> importPhotos());
     }
 
     @Override
@@ -153,8 +154,10 @@ public class PhotosFragment extends AbsGalleryFragment implements GalleryToolbar
     private GalleryClickListener getGalleryClickListener() {
         return new GalleryClickListener() {
             @Override
-            public void onClick() {
-
+            public void onClick(UserMedia userMedia) {
+                DetailFragment detailFragment = new DetailFragment();
+                detailFragment.setPhotoFilePath(userMedia.getMediaFilePath());
+                ((SecretFolderActivity) getActivity()).addFragment(detailFragment);
             }
 
             @Override

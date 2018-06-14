@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="start|center_vertical"
-        android:textAppearance="@style/AppFontHeading6"
+        android:textAppearance="@style/AppFontHeading20"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/delete_btn"

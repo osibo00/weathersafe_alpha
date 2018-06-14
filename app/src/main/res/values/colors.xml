@@ -6,6 +6,7 @@
     <color name="colorForeground">#e91e63</color>
     <color name="black87alpha">#de000000</color>
     <color name="black60alpha">#99000000</color>
+    <color name="black25alpha">#40000000</color>
     <color name="colorSurface">#ffffff</color>
     <color name="colorLight">#ffffff</color>
     <color name="colorSurfaceDark">#f5f5f5</color>

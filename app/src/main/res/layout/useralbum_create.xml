@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
             android:padding="@dimen/childView_margin"
-            android:textAppearance="@style/AppFontBody1"
+            android:textAppearance="@style/AppFontBody16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

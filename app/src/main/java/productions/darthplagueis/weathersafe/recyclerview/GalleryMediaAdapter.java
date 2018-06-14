@@ -130,7 +130,7 @@ public class GalleryMediaAdapter extends RecyclerView.Adapter<GalleryMediaAdapte
                 }
                 listener.onMultiSelectClick(amountSelected, userMedia);
             } else {
-                listener.onClick();
+                listener.onClick(userMedia);
             }
         }
 

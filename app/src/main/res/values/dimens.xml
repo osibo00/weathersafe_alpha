@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="text_view_small">12sp</dimen>
     <dimen name="text_view_body">16sp</dimen>
     <dimen name="text_view_body_large">20sp</dimen>
     <dimen name="text_view_heading">60sp</dimen>
@@ -18,4 +19,10 @@
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="md_key_lines">16dp</dimen>
+    <dimen name="article_key_lines">72dp</dimen>
+    <dimen name="mini_fab_margin">23dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_145">145dp</dimen>
 </resources>
