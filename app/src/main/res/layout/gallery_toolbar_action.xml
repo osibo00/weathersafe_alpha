@@ -9,9 +9,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/close_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="start|center_vertical"
-        android:textAppearance="@style/AppFontHeading20"
+        android:textAppearance="@style/FontHeading20sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/delete_btn"
@@ -33,9 +33,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/delete_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/copy_btn"
@@ -44,9 +44,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/copy_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/create_folder_btn"
@@ -55,9 +55,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/create_folder_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,9 +66,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/search_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,9 +77,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/sort_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/filter_btn"
@@ -88,9 +88,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/filter_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/settings_btn"
@@ -99,9 +99,9 @@
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/settings_btn"
-        style="@style/gallery_action_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/action_toolbar_button"
+        android:layout_width="@dimen/md_icon_button_margin"
+        android:layout_height="@dimen/md_icon_button_margin"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

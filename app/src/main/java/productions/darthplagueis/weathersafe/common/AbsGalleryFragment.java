@@ -35,10 +35,11 @@ import static productions.darthplagueis.weathersafe.util.Constants.DELETE_DIALOG
 import static productions.darthplagueis.weathersafe.util.Constants.PICK_IMAGE_CODE;
 
 
-public abstract class AbsGalleryFragment extends Fragment {
+public abstract class AbsGalleryFragment extends Fragment implements View.OnClickListener {
 
+    private View fabBackground;
     private LinearLayout fabLayout01, fabLayout02, fabLayout03;
-    private FloatingActionButton fab, mini01, mini02, mini03;
+    private FloatingActionButton fab;
 
     private boolean isFabActive;
 
@@ -54,6 +55,10 @@ public abstract class AbsGalleryFragment extends Fragment {
 
     protected abstract void createUserMedia(File file);
 
+    protected abstract void selectPhotos();
+
+    protected abstract void movePhotos();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,6 +73,31 @@ public abstract class AbsGalleryFragment extends Fragment {
         setFloatingActionButton(parentView);
 
         return parentView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.photos_fab:
+                if (!isFabActive) showFabMenu();
+                else closeFabMenu();
+                break;
+            case R.id.fab_background:
+                closeFabMenu();
+                break;
+            case R.id.mini_fab01:
+                importPhotos();
+                closeFabMenu();
+                break;
+            case R.id.mini_fab02:
+                movePhotos();
+                break;
+            case R.id.mini_fab03:
+                selectPhotos();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -89,13 +119,6 @@ public abstract class AbsGalleryFragment extends Fragment {
                 }
             }
         }
-    }
-
-    protected void importPhotos() {
-        Intent importPhotosIntent = new Intent(Intent.ACTION_PICK);
-        importPhotosIntent.setType("image/*");
-        importPhotosIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        startActivityForResult(Intent.createChooser(importPhotosIntent, ACTION_PICK_PHOTOS), PICK_IMAGE_CODE);
     }
 
     protected void setStatusBarColor(int color) {
@@ -121,18 +144,16 @@ public abstract class AbsGalleryFragment extends Fragment {
     }
 
     private void setFloatingActionButton(View parentView) {
+        fabBackground = parentView.findViewById(R.id.fab_background);
+        fabBackground.setOnClickListener(this);
         fabLayout01 = parentView.findViewById(R.id.fab_layout01);
         fabLayout02 = parentView.findViewById(R.id.fab_layout02);
         fabLayout03 = parentView.findViewById(R.id.fab_layout03);
         fab = parentView.findViewById(R.id.photos_fab);
-        mini01 = parentView.findViewById(R.id.mini_fab01);
-        mini02 = parentView.findViewById(R.id.mini_fab02);
-        mini03 = parentView.findViewById(R.id.mini_fab03);
-
-        fab.setOnClickListener(v -> {
-            if (!isFabActive) showFabMenu();
-            else closeFabMenu();
-        });
+        fab.setOnClickListener(this);
+        parentView.findViewById(R.id.mini_fab01).setOnClickListener(this);
+        parentView.findViewById(R.id.mini_fab02).setOnClickListener(this);
+        parentView.findViewById(R.id.mini_fab03).setOnClickListener(this);
     }
 
     private void showFabMenu() {
@@ -140,6 +161,7 @@ public abstract class AbsGalleryFragment extends Fragment {
         fabLayout01.setVisibility(View.VISIBLE);
         fabLayout02.setVisibility(View.VISIBLE);
         fabLayout03.setVisibility(View.VISIBLE);
+        fabBackground.setVisibility(View.VISIBLE);
         fab.animate().rotationBy(135f);
         fabLayout01.animate().translationY(-getResources().getDimension(R.dimen.dp_55));
         fabLayout02.animate().translationY(-getResources().getDimension(R.dimen.dp_100));
@@ -148,6 +170,7 @@ public abstract class AbsGalleryFragment extends Fragment {
 
     private void closeFabMenu() {
         isFabActive = false;
+        fabBackground.setVisibility(View.GONE);
         fab.animate().rotationBy(-135f);
         fabLayout01.animate().translationY(0);
         fabLayout02.animate().translationY(0);
@@ -159,7 +182,7 @@ public abstract class AbsGalleryFragment extends Fragment {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                if(!isFabActive){
+                if (!isFabActive) {
                     fabLayout01.setVisibility(View.GONE);
                     fabLayout02.setVisibility(View.GONE);
                     fabLayout03.setVisibility(View.GONE);
@@ -176,5 +199,12 @@ public abstract class AbsGalleryFragment extends Fragment {
 
             }
         });
+    }
+
+    private void importPhotos() {
+        Intent importPhotosIntent = new Intent(Intent.ACTION_PICK);
+        importPhotosIntent.setType("image/*");
+        importPhotosIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        startActivityForResult(Intent.createChooser(importPhotosIntent, ACTION_PICK_PHOTOS), PICK_IMAGE_CODE);
     }
 }

@@ -21,16 +21,16 @@
     <string name="delete_dialog_message">Delete selected item(s)?</string>
     <string name="dialog_yes">YES</string>
     <string name="dialog_no">NO</string>
-    <string name="sort_from_oldest_to_newest">From oldest to newest</string>
-    <string name="sort_from_newest_to_oldest">From newest to oldest</string>
-    <string name="sort_by_album">By album</string>
+    <string name="sort_from_oldest_to_newest">From Oldest to Newest</string>
+    <string name="sort_from_newest_to_oldest">From Newest to Oldest</string>
+    <string name="sort_by_album">By Album Name</string>
     <string name="user_album_photo">User Album Photo</string>
     <string name="create_album">Create Album</string>
     <string name="create_new_album">Create New Album</string>
     <string name="create_dialog_exists_error">Album %s already exists.</string>
-    <string name="enter_album_tags">Enter Album Tags</string>
+    <string name="enter_album_tags">Include Tags (Optional)</string>
     <string name="detail_photo">Detail Photo</string>
-    <string name="select">Select</string>
-    <string name="import_photos">Import</string>
-    <string name="move_photos">Move</string>
+    <string name="select">Select Content</string>
+    <string name="import_photos">Add to Vault</string>
+    <string name="move_photos">Move Content</string>
 </resources>

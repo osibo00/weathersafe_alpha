@@ -79,6 +79,16 @@ public class PhotosFragment extends AbsGalleryFragment implements GalleryToolbar
     }
 
     @Override
+    protected void selectPhotos() {
+
+    }
+
+    @Override
+    protected void movePhotos() {
+
+    }
+
+    @Override
     public void addToGallery(UserMedia userMedia) {
         mediaViewModel.insert(userMedia);
     }
