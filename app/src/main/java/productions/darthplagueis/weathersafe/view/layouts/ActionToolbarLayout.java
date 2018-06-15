@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +21,9 @@ import static productions.darthplagueis.weathersafe.util.Constants.SORT_ALBUMS;
 import static productions.darthplagueis.weathersafe.util.Constants.SORT_ASCENDING;
 import static productions.darthplagueis.weathersafe.util.Constants.SORT_DESCENDING;
 
-public class ActionToolbarLayout extends ConstraintLayout implements GalleryToolbarContract.ToolbarView {
+public class ActionToolbarLayout extends ConstraintLayout implements
+        GalleryToolbarContract.ToolbarView,
+        View.OnClickListener {
 
     private List<View> defaultView = new ArrayList<>();
     private List<View> actionView = new ArrayList<>();
@@ -47,12 +50,6 @@ public class ActionToolbarLayout extends ConstraintLayout implements GalleryTool
 
         presenter = GalleryToolbarPresenter.getINSTANCE();
         presenter.setToolbarView(this);
-
-        sortBtn.setOnClickListener(v1 -> onSort());
-
-        exitActionViewBtn.setOnClickListener(v14 -> onClose());
-        newAlbumBtn.setOnClickListener(v15 -> onCreateAlbum());
-        deleteBtn.setOnClickListener(v16 -> onConfirmDelete());
     }
 
     @Override
@@ -75,39 +72,60 @@ public class ActionToolbarLayout extends ConstraintLayout implements GalleryTool
         utilBarText.setText(String.format("%s%s", amountSelected, itemsSelected));
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.sort_btn:
+                onSort();
+                break;
+            case R.id.filter_btn:
+                break;
+            case R.id.close_btn:
+                onClose();
+                break;
+            case R.id.create_folder_btn:
+                onCreateAlbum();
+                break;
+            case R.id.delete_btn:
+                onConfirmDelete();
+                break;
+            default:
+                break;
+        }
+    }
+
     private void setDefaultView() {
         searchBtn = findViewById(R.id.search_btn);
         defaultView.add(searchBtn);
-
         sortBtn = findViewById(R.id.sort_btn);
+        sortBtn.setOnClickListener(this);
         defaultView.add(sortBtn);
-
         filterBtn = findViewById(R.id.filter_btn);
+        filterBtn.setOnClickListener(this);
         defaultView.add(filterBtn);
-
         settingsBtn = findViewById(R.id.settings_btn);
         defaultView.add(settingsBtn);
     }
 
     private void setActionView() {
         exitActionViewBtn = findViewById(R.id.close_btn);
+        exitActionViewBtn.setOnClickListener(this);
         actionView.add(exitActionViewBtn);
-
         newAlbumBtn = findViewById(R.id.create_folder_btn);
+        newAlbumBtn.setOnClickListener(this);
         actionView.add(newAlbumBtn);
-
         copyBtn = findViewById(R.id.copy_btn);
+        copyBtn.setOnClickListener(this);
         actionView.add(copyBtn);
-
         deleteBtn = findViewById(R.id.delete_btn);
+        deleteBtn.setOnClickListener(this);
         actionView.add(deleteBtn);
-
         utilBarText = findViewById(R.id.utilBar_text);
         actionView.add(utilBarText);
     }
 
     private void onSort() {
-        PopupMenu popupMenu = new PopupMenu(getContext(), sortBtn);
+        PopupMenu popupMenu = new PopupMenu(getContext(), sortBtn, Gravity.END);
         popupMenu.getMenuInflater().inflate(R.menu.sorting_menu, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
